@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ async def cli_main(cli_config: CLIConfig):
     )
     model_name_sanitized = cli_config.model_name.replace("/", "-")
     run_name = (
-        f"gem-{cli_config.env_id.replace(':','_')}-{model_name_sanitized}-r{cli_config.lora_rank}-"
+        f"gem-{cli_config.env_id.replace(':', '_')}-{model_name_sanitized}-r{cli_config.lora_rank}-"
         f"lr{cli_config.learning_rate}-g{cli_config.group_size}-b{cli_config.groups_per_batch}-"
         f"{datetime.now().strftime('%Y-%m-%d-%H-%M')}"
     )

@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -618,9 +618,9 @@ def is_latex_equal(given_answer: str, ground_truth: str) -> bool:
                 # Next call math verify.
                 given_answer.replace("\n", "")
                 ground_truth.replace("\n", "")
-                if not "$" in given_answer:
+                if "$" not in given_answer:
                     given_answer = f"${given_answer}$"
-                if not "$" in ground_truth:
+                if "$" not in ground_truth:
                     ground_truth = f"${ground_truth}$"
                 return verify(
                     parse(
@@ -798,7 +798,7 @@ def _normalize(expr: str) -> str:
         "yard",
     ]:
         expr = re.sub(f"{unit}(es)?(s)? *(\^[0-9]+)?", "", expr)
-    expr = re.sub(f"\^ *\\\\circ", "", expr)
+    expr = re.sub("\^ *\\\\circ", "", expr)
 
     if len(expr) > 0 and expr[0] == "{" and expr[-1] == "}":
         expr = expr[1:-1]

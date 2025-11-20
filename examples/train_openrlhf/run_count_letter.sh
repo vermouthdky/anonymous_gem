@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,19 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 apt-get install net-tools
 
 cd /mnt/
 
 # v0.8.10
 git clone https://github.com/OpenRLHF/OpenRLHF.git
-pip3 install -e . 
+pip3 install -e .
 
 pip install gem-llm
 
-pip3 install math-verify loguru fastapi uvicorn httpx python-multipart aiohttp aiolimiter pysbd jsonlines coloredlogs pebble aiolimiter 
-pip3 install func_timeout sentencex requests_futures timeout_decorator flashtext pygments 
+pip3 install math-verify loguru fastapi uvicorn httpx python-multipart aiohttp aiolimiter pysbd jsonlines coloredlogs pebble aiolimiter
+pip3 install func_timeout sentencex requests_futures timeout_decorator flashtext pygments
 
 export WARMUP=0.0
 export LR=1e-6
@@ -37,7 +36,6 @@ chmod -R 777 ./examples/scripts/
 ln -s ./OpenRLHF /openrlhf
 cd /openrlhf/examples/scripts
 chmod -R 777 /openrlhf/examples/scripts
-
 
 export OUTPUT_PATH=YOUR_OUTPUT_PATH
 mkdir ${OUTPUT_PATH}
@@ -58,8 +56,8 @@ export PATH=$HOME/.local/bin/:$PATH
 
 set -x
 if [ "$RANK" -eq 0 ]; then
-    ray start --head --port=6379  --include-dashboard=true --dashboard-host=0.0.0.0 --dashboard-port=8265 --num-gpus 8
-    ifconfig net0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1 > $expname/node_ip.txt
+    ray start --head --port=6379 --include-dashboard=true --dashboard-host=0.0.0.0 --dashboard-port=8265 --num-gpus 8
+    ifconfig net0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1 >$expname/node_ip.txt
     export MASTER_NODE=$(cat $expname/node_ip.txt)
     # sleep 2m
     set -x
@@ -122,5 +120,5 @@ else
     export MASTER_NODE=$(cat $expname/node_ip.txt)
     ray start --address="${MASTER_NODE}:6379"
 fi
- 
+
 sleep 365d

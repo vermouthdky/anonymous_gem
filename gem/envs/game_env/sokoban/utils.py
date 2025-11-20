@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -345,9 +345,9 @@ def room_topology_generation(
         # Apply mask
         mask = random_rng.sample(masks, 1)[0]
         mask_start = position - 1
-        level[
-            mask_start[0] : mask_start[0] + 3, mask_start[1] : mask_start[1] + 3
-        ] += mask
+        level[mask_start[0] : mask_start[0] + 3, mask_start[1] : mask_start[1] + 3] += (
+            mask
+        )
 
     level[level > 0] = 1
     level[:, [0, dim_y - 1]] = 0
@@ -413,7 +413,7 @@ def depth_first_search(
     state_tohash = marshal.dumps(room_state)
 
     # Only search this state, if it not yet has been explored
-    if not (state_tohash in explored_states):
+    if state_tohash not in explored_states:
         # Add current state and its score to explored states
         room_score = box_swaps * box_displacement_score(box_mapping)
         if np.where(room_state == 2)[0].shape[0] != num_boxes:

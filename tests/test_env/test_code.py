@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -199,7 +199,6 @@ def evaluate(
 
 
 if __name__ == "__main__":
-
     fire.Fire(
         {
             "action": test_reward_code_contests,
@@ -207,7 +206,7 @@ if __name__ == "__main__":
             "evaluate": evaluate,
         }
     )
-    print(f"\n\nAll tests run.\n\n")
+    print("\n\nAll tests run.\n\n")
 
     """Run with:
     python -m tests.test_env.test_code action

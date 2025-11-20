@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ ActType = TypeVar("ActType")
 
 
 class Env(abc.ABC):
-
     @abc.abstractmethod
     def step(
         self, action: ActType

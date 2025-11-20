@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,15 +53,15 @@ class ObservationWrapper(EnvWrapper):
                 "include_chat_template and apply_chat_template_on_reset cannot both be True at the same time."
             )
         if include_chat_template:
-            assert (
-                tokenizer is not None
-            ), "Tokenizer must be provided for chat template."
-            assert include_action, f"Action must be included if using chat template."
+            assert tokenizer is not None, (
+                "Tokenizer must be provided for chat template."
+            )
+            assert include_action, "Action must be included if using chat template."
 
         if apply_chat_template_on_reset:
-            assert (
-                tokenizer is not None
-            ), "Tokenizer must be provided for chat template."
+            assert tokenizer is not None, (
+                "Tokenizer must be provided for chat template."
+            )
 
     def reset(self, seed: Optional[int] = None, **kwargs) -> Tuple[str, dict[str, Any]]:
         self.act_queue.clear()

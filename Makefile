@@ -1,7 +1,6 @@
 print-%: ; @echo $* = $($*)
 SHELL=/bin/bash
 PROJECT_NAME  = gem
-COPYRIGHT     = "AxonRL Team. All Rights Reserved."
 PROJECT_PATH  = gem
 SOURCE_FOLDERS = $(PROJECT_PATH) tests examples
 LINT_PATHS    = ${PROJECT_PATH} tests examples

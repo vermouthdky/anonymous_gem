@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -143,9 +143,9 @@ def test_llm_episode(
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     def policy(obs):
-        assert isinstance(
-            obs, str
-        ), f"Observation should be a string but is {type(obs)}."
+        assert isinstance(obs, str), (
+            f"Observation should be a string but is {type(obs)}."
+        )
         response = llm.generate(
             [obs],
             sampling_params=sampling_params,
@@ -158,9 +158,9 @@ def test_llm_episode(
         return action
 
     def batch_policy(obss):
-        assert isinstance(
-            obss, List
-        ), f"Observation should be a string but is {type(obss)}."
+        assert isinstance(obss, List), (
+            f"Observation should be a string but is {type(obss)}."
+        )
         response = llm.generate(
             obss,
             sampling_params=sampling_params,
@@ -250,7 +250,7 @@ def evaluate(
     try:
         base_env = gem.make(test_set_name)
     except Exception:
-        base_env = MathEnv(f"axon-rl/math-eval", test_set_name)
+        base_env = MathEnv("axon-rl/math-eval", test_set_name)
 
     dataset = base_env.dataset
     if n_examples > 0:
@@ -424,7 +424,7 @@ def benchmark(
     # Print summary
     print(f"\nAccuracy results saved to: {csv_path}")
     print(f"Episodes saved to: {json_path}")
-    print(f"\nSummary:")
+    print("\nSummary:")
     print(f"Total environments: {len(env_names)}")
     successful_results = [r for r in results if r["accuracy"] is not None]
     if successful_results:

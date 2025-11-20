@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ from gem.vector.vector_env import ArrayType, AutoresetMode, VectorEnv
 
 
 class SyncVectorEnv(VectorEnv):
-    def step(self, actions: Union[Sequence[ActType], Dict[int, ActType]]) -> Tuple[
+    def step(
+        self, actions: Union[Sequence[ActType], Dict[int, ActType]]
+    ) -> Tuple[
         Sequence[ObsType],
         ArrayType,
         ArrayType,

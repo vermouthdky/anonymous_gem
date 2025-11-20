@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ def test(env_name: str = "rg:leg_counting"):
 
 if __name__ == "__main__":
     fire.Fire(test)
-    print(f"\n\nAll tests run.\n\n")
+    print("\n\nAll tests run.\n\n")
 
     """Run with:
         python -m tests.test_env.test_reasoning_gym --env_name rg:leg_counting

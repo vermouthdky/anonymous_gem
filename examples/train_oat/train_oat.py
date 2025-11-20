@@ -1,5 +1,3 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
-#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -697,9 +695,9 @@ class Learner(PPOLearner):
         # NOTE: prompt_template is needed for concat wrapper
         del _unused_dataloader
         assert not self.pi_beta_lags_behind, "pi beta lags behind for evaluation"
-        assert (
-            self.args.eval_n % len(self.actors) == 0
-        ), "args.eval_n must be divisible by number of actors"
+        assert self.args.eval_n % len(self.actors) == 0, (
+            "args.eval_n must be divisible by number of actors"
+        )
         self._pre_evaluate()
         self.strategy.print(f"Starting evaluation at {steps} steps")
         eval_env_ids = self.args.eval_envs
@@ -841,17 +839,17 @@ if __name__ == "__main__":
         if len(hp) == 1:
             hp = hp * len(args.eval_envs)
         else:
-            assert len(hp) == len(
-                args.eval_envs
-            ), "eval_wrappers/eval_prompt_templates should be either a string or a list of the same length as eval_envs"
+            assert len(hp) == len(args.eval_envs), (
+                "eval_wrappers/eval_prompt_templates should be either a string or a list of the same length as eval_envs"
+            )
         return hp
 
     if args.eval_envs:
         args.eval_envs = args.eval_envs.split("|")
         assert isinstance(args.eval_envs, list)
-        assert len(args.eval_envs) == len(
-            set(args.eval_envs)
-        ), "eval_envs should be unique"
+        assert len(args.eval_envs) == len(set(args.eval_envs)), (
+            "eval_envs should be unique"
+        )
         args.eval_wrappers = _validate_eval_hp(args.eval_wrappers)
         args.eval_prompt_templates = _validate_eval_hp(args.eval_prompt_templates)
     else:
@@ -862,9 +860,9 @@ if __name__ == "__main__":
         args.eval_steps = -1
 
     if "concat_chat" in args.wrappers:
-        assert (
-            args.prompt_template == "no"
-        ), "chat template is applied on env side already"
+        assert args.prompt_template == "no", (
+            "chat template is applied on env side already"
+        )
     args = default_args_validation(args)
 
     # Let's go

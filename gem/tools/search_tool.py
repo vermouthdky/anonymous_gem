@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@ class SearchTool(BaseTool):
             content = doc_item["document"]["contents"]
             title = content.split("\n")[0]
             text = "\n".join(content.split("\n")[1:])
-            format_reference += f"Doc {idx+1}(Title: {title}) {text}\n"
+            format_reference += f"Doc {idx + 1}(Title: {title}) {text}\n"
         return format_reference
 
     def instruction_string(self) -> str:

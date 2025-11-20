@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -64,7 +64,6 @@ TEMPLATE_FACTORY = {
 
 
 class VectorizedGemEnv:
-
     def __init__(self):
         self.num_envs = NUM_ENVS
 
@@ -246,7 +245,7 @@ async def reset(extra_info: Dict[str, Any]) -> str:
     try:
         observation = await VECTORIZED_ENV.reset_episode(extra_info)
         return observation
-    except Exception as e:
+    except Exception:
         raise
 
 
@@ -254,5 +253,5 @@ async def step(state: str, action: str, extra_info: Dict[str, Any]) -> Dict[str,
     try:
         result = await VECTORIZED_ENV.step_episode(state, action, extra_info)
         return result
-    except Exception as e:
+    except Exception:
         raise

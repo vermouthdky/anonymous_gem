@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -61,9 +61,9 @@ class VectorEnv(Env):
             seed = [None for _ in range(self.num_envs)]
         elif isinstance(seed, int):
             seed = [seed + i for i in range(self.num_envs)]
-        assert (
-            len(seed) == self.num_envs
-        ), f"If seeds are passed as a list the length must match num_envs={self.num_envs} but got length={len(seed)}."
+        assert len(seed) == self.num_envs, (
+            f"If seeds are passed as a list the length must match num_envs={self.num_envs} but got length={len(seed)}."
+        )
 
         for i, (env, single_seed) in enumerate(zip(self.envs, seed)):
             _kwargs = kwargs.pop(f"env{i}_kwargs", {})

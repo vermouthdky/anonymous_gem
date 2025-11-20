@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -219,9 +219,9 @@ class MinesweeperEnv(Env):
             current_row, current_col = queue.popleft()
 
             # Check it's not a mine
-            assert (
-                self.grid[current_row][current_col] != -1
-            ), f"Env error: Hit mine at ({current_row}, {current_col}) - this should not happen."
+            assert self.grid[current_row][current_col] != -1, (
+                f"Env error: Hit mine at ({current_row}, {current_col}) - this should not happen."
+            )
 
             # If the cell has no adjacent mines, add its neighbors to the queue
             if self.grid[current_row][current_col] == 0:
@@ -245,9 +245,9 @@ class MinesweeperEnv(Env):
                             not self.revealed[neighbor_row][neighbor_col]
                             and not self.flags[neighbor_row][neighbor_col]
                         ):
-                            self.revealed[neighbor_row][
-                                neighbor_col
-                            ] = True  # Mark as revealed when adding to queue
+                            self.revealed[neighbor_row][neighbor_col] = (
+                                True  # Mark as revealed when adding to queue
+                            )
                             num_newly_revealed += 1
                             queue.append((neighbor_row, neighbor_col))
         return num_newly_revealed

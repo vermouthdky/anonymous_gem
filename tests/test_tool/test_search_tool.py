@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -141,9 +141,9 @@ def test_llm_episode(
     tokenizer = llm.get_tokenizer()
 
     def policy(obs):
-        assert isinstance(
-            obs, str
-        ), f"Observation should be a string but is {type(obs)}."
+        assert isinstance(obs, str), (
+            f"Observation should be a string but is {type(obs)}."
+        )
         response = llm.generate(
             [obs],
             sampling_params=sampling_params,
@@ -369,7 +369,7 @@ def benchmark(
     if save_results:
         print(f"\nAccuracy results saved to: {csv_path}")
         print(f"Episodes saved to: {json_path}")
-    print(f"\nSummary:")
+    print("\nSummary:")
     print(f"Total environments: {len(env_names)}")
     successful_results = [r for r in results if r["accuracy"] is not None]
     if successful_results:

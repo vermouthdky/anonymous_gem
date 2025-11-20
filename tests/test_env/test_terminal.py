@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -124,9 +124,9 @@ def test_openai(
         if use_open_router
         else os.environ.get("OPENAI_API_KEY")
     )
-    assert (
-        _api_key
-    ), "Please provide valid api key via env var: OPENROUTER_API_KEY | OPENAI_API_KEY"
+    assert _api_key, (
+        "Please provide valid api key via env var: OPENROUTER_API_KEY | OPENAI_API_KEY"
+    )
     client = OpenAI(
         base_url=(
             "https://openrouter.ai/api/v1"

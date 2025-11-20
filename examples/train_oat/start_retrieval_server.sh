@@ -1,6 +1,4 @@
 #!/bin/bash
-# Copyright 2025 AxonRL Team. All Rights Reserved.
-#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -31,20 +29,20 @@ check_server() {
 wait_for_server() {
     local url=$1
     local attempt=1
-    
+
     echo "Waiting for server at $url to be ready..."
-    
+
     while [ $attempt -le $MAX_ATTEMPTS ]; do
         if check_server "$url"; then
             echo "Server is ready!"
             return 0
         fi
-        
+
         echo "Attempt $attempt/$MAX_ATTEMPTS: Server not ready, waiting ${RETRY_DELAY} seconds..."
         sleep $RETRY_DELAY
         ((attempt++))
     done
-    
+
     echo "Error: Server failed to start after $MAX_ATTEMPTS attempts"
     return 1
 }

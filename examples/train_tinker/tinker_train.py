@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -305,7 +305,7 @@ async def main(config: Config):
                 act = tokenizer.decode(transition["act_tokens"])
                 obs = obs[:196] + "\n...\n" + obs[-200:] if len(obs) > 396 else obs
                 act = act[:196] + "\n...\n" + act[-200:] if len(act) > 396 else act
-                print(f"turn={t+1}")
+                print(f"turn={t + 1}")
                 print(colored(obs, "blue"))
                 print(colored(act, "light_red", attrs=["bold"]))
                 print(
@@ -364,7 +364,9 @@ async def main(config: Config):
                 == len(target_tokens)
                 == len(all_logprobs)
                 == len(all_advantages)
-            ), f"len(input_tokens): {len(input_tokens)}, len(target_tokens): {len(target_tokens)}, len(all_logprobs): {len(all_logprobs)}, len(all_advantages): {len(all_advantages)}"
+            ), (
+                f"len(input_tokens): {len(input_tokens)}, len(target_tokens): {len(target_tokens)}, len(all_logprobs): {len(all_logprobs)}, len(all_advantages): {len(all_advantages)}"
+            )
 
             datum = types.Datum(
                 model_input=types.ModelInput.from_ints(tokens=input_tokens),

@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -118,12 +118,12 @@ class GemEnvGroupBuilder(EnvGroupBuilder):
     group_index: int = -1  # which env in the pool to use for this
 
     async def make_envs(self) -> Sequence[Env]:
-        assert (
-            0 <= self.group_index < len(self.pool)
-        ), "group_index should be within the range of the pool size"
-        assert hasattr(
-            self.pool[0], "get_state"
-        ), "env must support get_state() to run in GemEnvGroupBuilder"
+        assert 0 <= self.group_index < len(self.pool), (
+            "group_index should be within the range of the pool size"
+        )
+        assert hasattr(self.pool[0], "get_state"), (
+            "env must support get_state() to run in GemEnvGroupBuilder"
+        )
 
         # duplicate the env for the group size
         env_parent = self.pool[self.group_index]
@@ -148,9 +148,9 @@ class GemDataset(RLDataset):
         self, builder_config: dict[str, Any], groups_per_batch: int, n_batches: int
     ):
         pool = builder_config["pool"]
-        assert len(set(env.seed for env in pool)) == len(
-            pool
-        ), "All envs in the pool must have different seeds."
+        assert len(set(env.seed for env in pool)) == len(pool), (
+            "All envs in the pool must have different seeds."
+        )
 
         self.builder_config = builder_config
         self.groups_per_batch = groups_per_batch

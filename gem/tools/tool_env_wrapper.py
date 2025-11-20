@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,12 +35,12 @@ class ToolEnvWrapper(EnvWrapper):
         self.tool_execute_error_reward = tool_execute_error_reward
         if self.tool_execute_error_reward != 0:
             assert self.tool_execute_error_reward < 0, "Error reward should be negative"
-            assert (
-                self.tool_reward == 0
-            ), "tool reward is not compatible with tool execute error reward"
-            assert (
-                self.tool_success_reward == 0
-            ), "tool success reward is not compatible with tool execute error reward"
+            assert self.tool_reward == 0, (
+                "tool reward is not compatible with tool execute error reward"
+            )
+            assert self.tool_success_reward == 0, (
+                "tool success reward is not compatible with tool execute error reward"
+            )
 
         self.max_tool_uses = (
             max_tool_uses if max_tool_uses is not None else float("inf")
@@ -103,17 +103,17 @@ class ToolEnvWrapper(EnvWrapper):
                     )
             elif self.tool_execute_error_reward != 0:
                 reward = self.tool_execute_error_reward
-        
+
             info["use_tool"] = True
-            
+
         # if no tool was executed, step the environment
         else:
             observation, reward, terminated, truncated, info = self.env.step(action)
             info["use_tool"] = False
-            
+
         info["tool_use_counter"] = self.tool_use_counter
         info["tool_success_counter"] = self.tool_success_counter
-        
+
         return observation, reward, terminated, truncated, info
 
     def get_state(self) -> dict[str, Any]:

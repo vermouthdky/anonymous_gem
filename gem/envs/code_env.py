@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -81,7 +81,6 @@ class CodeEnv(Env):
     def step(
         self, action: str
     ) -> Tuple[str, SupportsFloat, bool, bool, dict[str, Any]]:
-
         model_code = extract_code_from_model(action)
         if model_code is None:
             return TERMINAL_STATE, -0.1, True, True, {}

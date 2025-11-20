@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -158,9 +158,9 @@ def test_llm_episode(
     tokenizer = llm.get_tokenizer()
 
     def policy(obs):
-        assert isinstance(
-            obs, str
-        ), f"Observation should be a string but is {type(obs)}."
+        assert isinstance(obs, str), (
+            f"Observation should be a string but is {type(obs)}."
+        )
         response = llm.generate(
             [obs],
             sampling_params=sampling_params,
@@ -207,7 +207,7 @@ def test_multi_server(
         # Then run test:
         python -m tests.test_tool.test_mcp_tool multi_server --time_url http://127.0.0.1:8081/time-mcp
     """
-    print(f"Testing multi-server configuration:")
+    print("Testing multi-server configuration:")
     print(f"  Time server: {time_url}")
     print(f"  Context7 server: {context7_url}")
 
@@ -223,13 +223,13 @@ def test_multi_server(
         # Create MCPTool with multi-server config
         tool = MCPTool(config, validate_on_init=False)
 
-        print(f"\n=== SERVER CONFIGURATION ===")
+        print("\n=== SERVER CONFIGURATION ===")
         print(f"Server names: {tool._get_server_names()}")
         print(f"Is multi-server: {tool._is_multi_server()}")
         print(f"Configuration: {tool._get_server_description()}")
 
         # Discover tools and verify prefixing
-        print(f"\n=== TOOL DISCOVERY ===")
+        print("\n=== TOOL DISCOVERY ===")
         tools = tool.get_available_tools()
 
         if not tools:
@@ -256,7 +256,7 @@ def test_multi_server(
         print(f"Context7 server tools ({len(context7_tools)}): {context7_tools}")
 
         # Test instruction string contains server prefixes
-        print(f"\n=== INSTRUCTION STRING VERIFICATION ===")
+        print("\n=== INSTRUCTION STRING VERIFICATION ===")
         instruction = tool.instruction_string()
         has_time_prefix = "[time]" in instruction
         has_context7_prefix = "[context7]" in instruction
@@ -266,7 +266,7 @@ def test_multi_server(
 
         # Test with environment if we have tools
         if time_tools:
-            print(f"\n=== ENVIRONMENT TESTING ===")
+            print("\n=== ENVIRONMENT TESTING ===")
             env = gem.make(env_name, max_turns=2)
             env = ToolEnvWrapper(env, tools=[tool], max_tool_uses=2)
             obs, info = env.reset()
@@ -278,12 +278,12 @@ def test_multi_server(
             print(f"Testing tool call: {test_tool}")
             try:
                 obs, reward, terminated, truncated, info = env.step(test_action)
-                print(f"✅ Tool execution successful")
+                print("✅ Tool execution successful")
                 print(f"Observation excerpt: {str(obs)[:200]}...")
             except Exception as e:
                 print(f"⚠️  Tool execution failed: {e}")
 
-        print(f"\n✅ Multi-server test completed successfully!")
+        print("\n✅ Multi-server test completed successfully!")
         print(
             f"   - Automatic prefixing: {'✅' if time_tools or context7_tools else '❌'}"
         )
@@ -346,9 +346,9 @@ def test_mcpmark_openai(
 
     _api_key = os.environ.get(model_provider_map[model_provider]["api_key_env"], None)
     _base_url = os.environ.get(model_provider_map[model_provider]["base_url_env"], None)
-    assert (
-        _api_key
-    ), f"Please provide valid api key via env var: {model_provider_map[model_provider]['api_key_env']}"
+    assert _api_key, (
+        f"Please provide valid api key via env var: {model_provider_map[model_provider]['api_key_env']}"
+    )
 
     if model_provider == "anthropic":
         client = anthropic.Anthropic(api_key=_api_key)

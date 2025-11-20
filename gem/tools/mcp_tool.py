@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -617,7 +617,7 @@ class MCPTool(BaseTool):
             auth: Optional authentication for URL string input
             headers: Optional headers for URL string input
         """
-        logger.info(f"Reconfiguring MCPTool with new configuration")
+        logger.info("Reconfiguring MCPTool with new configuration")
 
         # Close existing client if it exists
         self.close()
@@ -694,26 +694,26 @@ class MCPTool(BaseTool):
             tool_functions.append(json.dumps(func_def))
 
         return (
-            f"# Tool-Use Instructions\n\n"
-            f"In this environment you have access to a set of tools you can use to answer the user's question.\n\n"
-            f"You only have access to the tools provided below. You can only use one tool per message, and will receive the result of that tool in the user's next response. You use tools step-by-step to accomplish a given task, with each tool-use informed by the result of the previous tool-use.\n\n"
-            f"Tool-use is formatted using XML-style tags. The tool-use is enclosed in <tool_call></tool_call> and each parameter is similarly enclosed within its own set of tags.\n\n"
-            f"## Parameters\n"
-            f"- tool_name: (required) The name of the tool to execute\n"
-            f"- arguments: (required) A JSON object containing the tool's input parameters, following the tool's input schema. Quotes within strings must be properly escaped. Ensure the JSON is valid.\n\n"
-            f"## Usage Example\n"
-            f"<tool_call>\n"
-            f"<tool_name>tool_name_here</tool_name>\n"
-            f"<arguments>\n"
-            f"{{\n"
-            f'  "param1": "value1",\n'
-            f'  "param2": "value2 \\"escaped string\\""\n'
-            f"}}\n"
-            f"</arguments>\n"
-            f"</tool_call>\n\n"
-            f"## Available Tools\n"
-            f"Here are the functions available within <tools></tools> XML tags:\n\n"
-            f"<tools>\n" + "\n".join(tool_functions) + f"\n</tools>"
+            "# Tool-Use Instructions\n\n"
+            "In this environment you have access to a set of tools you can use to answer the user's question.\n\n"
+            "You only have access to the tools provided below. You can only use one tool per message, and will receive the result of that tool in the user's next response. You use tools step-by-step to accomplish a given task, with each tool-use informed by the result of the previous tool-use.\n\n"
+            "Tool-use is formatted using XML-style tags. The tool-use is enclosed in <tool_call></tool_call> and each parameter is similarly enclosed within its own set of tags.\n\n"
+            "## Parameters\n"
+            "- tool_name: (required) The name of the tool to execute\n"
+            "- arguments: (required) A JSON object containing the tool's input parameters, following the tool's input schema. Quotes within strings must be properly escaped. Ensure the JSON is valid.\n\n"
+            "## Usage Example\n"
+            "<tool_call>\n"
+            "<tool_name>tool_name_here</tool_name>\n"
+            "<arguments>\n"
+            "{\n"
+            '  "param1": "value1",\n'
+            '  "param2": "value2 \\"escaped string\\""\n'
+            "}\n"
+            "</arguments>\n"
+            "</tool_call>\n\n"
+            "## Available Tools\n"
+            "Here are the functions available within <tools></tools> XML tags:\n\n"
+            "<tools>\n" + "\n".join(tool_functions) + "\n</tools>"
         )
 
     def _get_server_names(self) -> List[str]:

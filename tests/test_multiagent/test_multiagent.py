@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ import random
 from typing import Dict, Tuple
 
 import fire
-
 from gem.multiagent import AgentSelector, MultiAgentEnv
 
 logging.basicConfig(
@@ -40,7 +39,9 @@ class SimpleTestEnv(MultiAgentEnv):
     def observe(self, agent: str) -> str:
         return f"Step {self.step_count}: Observation for {agent}"
 
-    def _process_actions(self, actions: Dict[str, str]) -> Tuple[
+    def _process_actions(
+        self, actions: Dict[str, str]
+    ) -> Tuple[
         Dict[str, str],
         Dict[str, float],
         Dict[str, bool],

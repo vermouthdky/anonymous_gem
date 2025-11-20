@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -246,7 +246,7 @@ def benchmark(
     # Print summary
     print(f"\nAccuracy results saved to: {csv_path}")
     print(f"Episodes saved to: {json_path}")
-    print(f"\nSummary:")
+    print("\nSummary:")
     print(f"Total environments: {len(env_names)}")
     successful_results = [r for r in results if r["accuracy"] is not None]
     if successful_results:
@@ -258,7 +258,6 @@ def benchmark(
 
 
 if __name__ == "__main__":
-
     fire.Fire(
         {
             "llm_episode": test_llm_episode,

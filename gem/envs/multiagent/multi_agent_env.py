@@ -1,4 +1,4 @@
-# Copyright 2025 AxonRL Team. All Rights Reserved.
+# Copyright 2025 anonymous Team. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ from gem.core import Env
 
 
 class MultiAgentEnv(Env):
-
     def __init__(self):
         super().__init__()
 
@@ -37,7 +36,9 @@ class MultiAgentEnv(Env):
         self.shared_memory = []
         self.global_context = ""
 
-    def step(self, actions: Dict[str, str]) -> Tuple[
+    def step(
+        self, actions: Dict[str, str]
+    ) -> Tuple[
         Dict[str, str],
         Dict[str, float],
         Dict[str, bool],
@@ -86,7 +87,9 @@ class MultiAgentEnv(Env):
                 raise ValueError(f"Agent {agent} provided action but is not active")
 
     @abc.abstractmethod
-    def _process_actions(self, actions: Dict[str, str]) -> Tuple[
+    def _process_actions(
+        self, actions: Dict[str, str]
+    ) -> Tuple[
         Dict[str, str],
         Dict[str, float],
         Dict[str, bool],
@@ -208,7 +211,6 @@ class MultiAgentEnv(Env):
 
 
 class AgentSelector:
-
     def __init__(self, agents: List[str], mode: str = "sequential"):
         self.mode = mode
         self._agents = agents.copy()
