@@ -41,7 +41,6 @@ class OnlineSearchEngine:
         return response.json()
 
     def batch_search(self, queries: List[str]):
-        # TODO: @changyu maybe add per request topk
         results = []
         with ThreadPoolExecutor() as executor:
             for result in executor.map(self._search_query, queries):

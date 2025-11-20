@@ -424,7 +424,6 @@ class MCPTool(BaseTool):
             try:
                 # Recreate client on retry attempts to handle stdio connection issues
                 if attempt > 0:
-                    # TODO: @changyu check if this is necessary
                     logger.info(f"Recreating client for retry attempt {attempt + 1}")
                     self.client = self._create_client(
                         (

@@ -2,13 +2,6 @@
 
 # 🌍 GEM: A Gym for Agentic LLMs
 
-
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2510.01051) [![Notion blog](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://axon-rl.notion.site/gem) 
-[![Hugging Face Collection](https://img.shields.io/badge/AxonRL-fcd022?style=for-the-badge&logo=huggingface&logoColor=000&labelColor)](https://huggingface.co/axon-rl)
-[![🌐 Axon-RL](https://img.shields.io/badge/-AxonRL%20project-5865F2?style=for-the-badge)](https://axon-rl.github.io/) 
-[![Documentation](https://img.shields.io/badge/Documentation-blue?style=for-the-badge&logo=readthedocs&logoColor=white)](https://axon-rl.github.io/gem/)
-[![PyPI - Version](https://img.shields.io/pypi/v/gem-llm.svg?style=for-the-badge)](https://pypi.org/project/gem-llm)
-
 </div>
 
 ## Overview
@@ -25,22 +18,13 @@ Like [OpenAI Gym](https://github.com/openai/gym) for traditional RL, GEM provide
 * 🧠 Multi-environment training
 * 🎈 Ready-to-use benchmark environments and algorithms
 
-## Links
-  * 📜 [Initial Blog](https://axon-rl.notion.site/gem)
-  * 🚀 [Blog release tweet](https://x.com/zzlccc/status/1951358948587741295)
-  * 📄 [Paper](https://arxiv.org/pdf/2510.01051)
-  * 📘 [Documentation](https://axon-rl.github.io/gem/)
 
 ## Installation
 
-```bash
-pip install -U gem-llm
-```
-
-Or install from source for the latest version:
+install from source for the latest version:
 
 ```bash
-git clone https://github.com/axon-rl/gem.git
+git clone <this repo> gem
 cd gem
 pip install -e .
 ```
@@ -50,9 +34,9 @@ Please check [Getting Started](./GETTING_STARTED.md) for more setup details.
 🔥 You can jump into [examples](./examples/) to quickly start your agentic RL training with GEM & your favorite training framework.
 
 ## Interface
-GEM's interface closely follows OpenAI-Gym's API. Here's an example using the `game:GuessTheNumber-v0` environment: 
+GEM's interface closely follows OpenAI-Gym's API. Here's an example using the `game:GuessTheNumber-v0` environment:
 
-```python 
+```python
 import gem
 
 # List all supported environments
@@ -148,38 +132,4 @@ Examples of training agents on GEM environments with all above frameworks can be
 
 </div>
 
-Please check out [our paper](https://arxiv.org/pdf/2510.01051) for a more detailed description for each algorithm and empirical results showing their tradeoffs.
-
-## Contributing
-
-We welcome all forms of contribution — from adding new environments to integrating additional training frameworks. We're planning to write a community-driven technical report, and major contributors will be recognized with authorship. Join [discord](https://discord.gg/AfXVkEphzD) to discuss more!
-
-## Acknowledgement
-* This work is supported by [Sea AI Lab](https://sail.sea.com/) for computing resources.
-* Our code learns from and builds on several awesome projects such as [gym](https://github.com/openai/gym), [rllm](https://github.com/rllm-org/rllm), [TextArena](https://github.com/LeonGuertler/TextArena), [Search-R1](https://github.com/PeterGriffinJin/Search-R1), [ReasoningGym](https://github.com/open-thought/reasoning-gym).
-* The training example code is built on [Oat](https://github.com/sail-sg/oat), [Tinker](https://github.com/thinking-machines-lab/tinker), [Verl](https://github.com/volcengine/verl), [RL2](https://github.com/ChenmienTan/RL2), [ROLL](https://github.com/alibaba/ROLL), [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF).
-
-
-## Citation
-If you find our works useful for your research, please consider citing:
-
-* GEM paper (please prioritize citing the paper unless you believe the blog is a better fit):
-  ```bibtex
-  @article{liu2025gem,
-    title={GEM: A Gym for Agentic LLMs},
-    author={Liu, Zichen and Sims, Anya and Duan, Keyu and Chen, Changyu and Yu, Simon and Zhou, Xiangxin and Xu, Haotian and Xiong, Shaopan and Liu, Bo and Tan, Chenmien and others},
-    journal={arXiv preprint arXiv:2510.01051},
-    year={2025}
-  }
-  ```
-
-* GEM blog:
-  ```bibtex
-  @misc{liu2025gemblog,
-    title={GEM: A Gym for Generalist LLMs},
-    author={Liu, Zichen and Sims, Anya and Duan, Keyu and Chen, Changyu and Yang, Diyi and Lee, Wee Sun and Lin, Min},
-    year={2025},
-    howpublished={\url{https://axon-rl.notion.site/gem}},
-    note={Notion Blog},
-  }
-  ```
+Please check out our paper for a more detailed description for each algorithm and empirical results showing their tradeoffs.

@@ -9,12 +9,6 @@ description = 'A Gym for Generalist LLMs.'
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = []
-authors = [
-  { name = "Zichen Liu", email = "lkevinzc@gmail.com" },
-  { name = "Anya Sims", email = "anya.sims@stats.ox.ac.uk" },
-  { name = "Keyu Duan", email = "k.duan@u.nus.edu" },
-  { name = "Changyu Chen", email = "abelco.cy@gmail.com" },
-]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
@@ -65,10 +59,6 @@ webshop = [
   "Werkzeug==2.1.0",
 ]
 
-[project.urls]
-Documentation = "https://axon-rl.github.io/gem/"
-Issues = "https://github.com/axon-rl/gem/issues"
-Source = "https://github.com/axon-rl/gem"
 
 [project.license]
 text = "Apache-2.0"
